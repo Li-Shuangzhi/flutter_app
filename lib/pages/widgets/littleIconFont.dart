@@ -10,7 +10,7 @@ class LittleIconFont extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 13.0),
+      padding: EdgeInsets.only(bottom: 19.0),
       child: GestureDetector(
         onTap: null,
         child: Column(

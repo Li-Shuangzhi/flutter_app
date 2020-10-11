@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/widgets/littleIconFont.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:dotted_decoration/dotted_decoration.dart';
 
 class firstPage extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _firstPageState extends State<firstPage> {
         ),
         body: TabBarView(
           children: <Widget>[
-            Column(
+            ListView(
               children: [
                 Container(
                   height: 150.0,
@@ -57,14 +58,14 @@ class _firstPageState extends State<firstPage> {
                 Container(
                   width: 380,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0, 4.0),
-                      )
-                    ]
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 4.0),
+                        )
+                      ]
                   ),
                   child: ButtonBar(
                     alignment: MainAxisAlignment.start,
@@ -125,7 +126,7 @@ class _firstPageState extends State<firstPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 5),
+                  margin: EdgeInsets.only(top: 7),
                   child: Row(
                     children: [
                       Expanded(
@@ -140,8 +141,57 @@ class _firstPageState extends State<firstPage> {
                         ),
                       ),
                       Expanded(
-                        flex: 3,
-                        child: Text("flutter")
+                          flex: 3,
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only( bottom: 20),
+                                child: Container(
+                                  padding: EdgeInsets.all(3),
+                                  child: RaisedButton(
+                                    child: Text("进入\n技巧学习",textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                                    color: Color.fromARGB(255, 101, 219, 11),
+                                    onPressed: () {},
+                                    shape: CircleBorder(),
+                                  ),
+                                ),
+                                width: 120,
+                                height: 120,
+                                decoration: DottedDecoration(
+                                    color: Color.fromARGB(255, 101, 219, 11),
+                                    shape: Shape.circle,
+                                    dash: <int>[5, 4]
+                                ),
+                              ),
+                              Container(
+                                child: Container(
+                                  padding: EdgeInsets.all(2),
+                                  child: RaisedButton(
+                                    child: RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                          children: <InlineSpan>[
+                                            TextSpan(text: '模拟考试', style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                                            TextSpan(text: "100%仿真", style: TextStyle(color: Colors.white, fontSize: 14)),
+                                          ]
+                                      ),
+
+                                    ),
+                                    color: Colors.blue,
+                                    onPressed: () {},
+                                    shape: CircleBorder(),
+                                  ),
+                                ),
+                                width: 120,
+                                height: 120,
+                                decoration: DottedDecoration(
+                                    color: Color.fromARGB(255, 74, 176, 251),
+                                    shape: Shape.circle,
+                                    dash: <int>[5, 4]
+                                ),
+                              ),
+                            ],
+                          )
                       ),
                       Expanded(
                         flex: 2,
@@ -150,16 +200,35 @@ class _firstPageState extends State<firstPage> {
                             LittleIconFont("精简题库", Colors.red, IconData(0xe6ca, fontFamily: 'iconfont'), 45 ),
                             LittleIconFont("我的错题", Colors.deepOrange, IconData(0xe61a, fontFamily: 'iconfont'), 35 ),
                             LittleIconFont("我的收藏", Colors.deepPurple, IconData(0x3432, fontFamily: 'iconfont'), 35 ),
-                            LittleIconFont("客服在线", Colors.black, IconData(0xe645, fontFamily: 'iconfont'), 37 ),
+                            LittleIconFont("客服在线", Colors.black, IconData(0xe645, fontFamily: 'iconfont'), 35 ),
                           ],
 
                         ),
                       )
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.accessibility_new_rounded),
+                      Text("必过神器  ", style: TextStyle(fontSize: 16),),
+                      SizedBox(
+                        width: 3,
+                        height: 22,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(color: Colors.grey),
+                        ),
+                      ),
+                      Text("  神器在手  驾照我有")
+                    ],
+                  ),
+                ),
+                Divider(height: 20, color: Colors.grey,),
               ],
             ),
+
 
             Text('科目四'),
             Text('满分学习'),
